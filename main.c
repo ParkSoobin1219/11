@@ -2,21 +2,23 @@
 #include <stdlib.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-void swap(int *x, int *y){
-	int temp;
-	
-	temp=*x;
-	*x=*y;
-	*y=temp;
-}
-
 int main(int argc, char *argv[]) {
-	int a=3;
-	int b=5;
-	int *ap=&a;
-	int *bp=&b;
-	
-	swap(&a,&b);
-	printf("a:%i, b:%i\n", a, b);
-	return 0;
+   int i;
+   int grade[5];
+   int sum=0;
+   int *ptr=grade;
+   
+   for(i=0;i<5;i++){
+      printf("input value (%i) : ", i);
+      scanf("%d", &grade[i]);
+   }
+   
+   for(i=0;i<5;i++)
+   {
+       printf("grade[%i]=%d\n", i, *(ptr+i)); 
+      sum=sum+*(ptr+i);
+   }
+   
+   printf("average : %d", sum/5);
+   return 0;
 }
